@@ -14,6 +14,8 @@ schemes:
   - https
 produces:
   - application/json
+security:
+  - APIKeyQueryParam: []
 paths:
   /flights/inspiration-search:
     get:
@@ -3102,3 +3104,10 @@ definitions:
         $ref: "#/definitions/Image"
       hd:
         $ref: "#/definitions/Image"
+        
+securityDefinitions:
+   # /path?api_key=abcdef12345
+   APIKeyQueryParam:
+     type: apiKey
+     in: query
+     name: apikey
